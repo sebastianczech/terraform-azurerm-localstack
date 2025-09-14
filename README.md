@@ -36,6 +36,19 @@ docker system prune --all --force
 rm -fr volume
 ```
 
+## Modules
+
+- [Azure API Management](./modules/api-management/)
+- [Azure App Service](./modules/app-service/)
+- [Azure RBAC](./modules/rbac/)
+- [Azure Container Registry](./modules/container-registry/)
+- [Azure Kubernetes Service](./modules/kubernetes/)
+- [Azure Database for PostgreSQL](./modules/postgresql/)
+- [Azure Key Vault](./modules/key-vault/)
+- [Azure Blob Storage](./modules/blob-storage/)
+- [Azure Storage](./modules/storage/)
+- [Azure SQL](./modules/sql-database/)
+
 ## Links
 
 * [LocalStack Cloud](https://app.localstack.cloud/)
