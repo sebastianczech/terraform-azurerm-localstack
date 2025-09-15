@@ -42,3 +42,13 @@ output "host" {
   value       = azurerm_kubernetes_cluster.this.kube_config.0.host
   sensitive   = true
 }
+
+output "principal_id" {
+  description = "The Principal ID of the System Assigned Managed Identity"
+  value       = azurerm_kubernetes_cluster.this.identity.0.principal_id
+}
+
+output "kubelet_identity" {
+  description = "The Kubelet Identity of the AKS cluster"
+  value       = azurerm_kubernetes_cluster.this.kubelet_identity
+}
