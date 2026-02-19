@@ -98,3 +98,9 @@ docker system prune --all --force
 * [Docker Image - LocalStack Azure Alpha](https://hub.docker.com/r/localstack/localstack-azure-alpha)
 * [Docker Desktop](https://docs.docker.com/desktop/)
 * [Docker Compose](https://docs.docker.com/compose/)
+* Azure emulator tools:
+  * [Topaz - Local Azure environment emulation for development](https://github.com/TheCloudTheory/Topaz)
+  * [Azure Cosmos DB Emulator Docker Container](https://github.com/Azure/azure-cosmos-db-emulator-docker)
+  * [Azure Event Hubs Emulator Installer](https://github.com/Azure/azure-event-hubs-emulator-installer)
+  * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools)
+  * [Azurite - Azure Storage Emulator](https://github.com/Azure/Azurite)
