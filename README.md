@@ -17,10 +17,18 @@ docker pull localstack/localstack-azure-alpha
 docker run \
     --rm -it \
     -p 4566:4566 \
+    -p 4510:4510 \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v ~/.localstack/volume:/var/lib/localstack \
     -e LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?} \
     localstack/localstack-azure-alpha
+```
+
+Install `azlocal`:
+
+```bash
+brew install pipx
+pipx install azlocal
 ```
 
 Quickstart:
@@ -45,6 +53,47 @@ az group list
 
 # Show details of the created resource group
 az group show --name MyResourceGroup
+
+# Create storage account
+az storage account create \
+    --name testaccount \
+    --resource-group MyResourceGroup \
+    --location westeurope \
+    --sku Standard_LRS
+
+# Create container
+azlocal storage container create \
+    --name testcontainer \
+    --account-name testaccount \
+    --auth-mode login
+
+# List container
+azlocal storage container list \
+    --account-name testaccount \
+    --auth-mode login
+
+# Upload blob
+azlocal storage blob upload \
+    --container-name testcontainer \
+    --account-name testaccount \
+    --data "Your raw data here" \
+    --name testblog \
+    --auth-mode login
+
+# Download blob
+azlocal storage blob download \
+    --container-name testcontainer \
+    --account-name testaccount \
+    --file check.txt \
+    --name testblog \
+    --auth-mode login
+
+# Show blob details
+azlocal storage blob show \
+    --account-name testaccount \
+    --container testcontainer \
+    --auth-mode login \
+    --name testblog
 
 # Clean up resources
 az group delete --name MyResourceGroup --yes
