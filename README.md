@@ -2,10 +2,15 @@
 
 ## Usage
 
-Setup environment using Docker Compose:
+Acquire an auth token for LocalStack Cloud from https://app.localstack.cloud/ and set it as an environment variable:
 
 ```bash
 export LOCALSTACK_AUTH_TOKEN=<your_auth_token>
+```
+
+Setup environment using Docker Compose:
+
+```bash
 docker-compose up
 ```
 
