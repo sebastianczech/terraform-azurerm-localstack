@@ -1,6 +1,6 @@
 # Terraform modules for provisioning resource in Azure LocalStack
 
-## Usage
+## Pre-requisites
 
 Acquire an auth token for LocalStack Cloud from https://app.localstack.cloud/ and set it as an environment variable:
 
@@ -35,6 +35,10 @@ Install `azlocal`:
 brew install pipx
 pipx install azlocal
 ```
+
+## Labs
+
+### Lab 1 - Azure CLI with LocalStack
 
 Quickstart:
 ```bash
@@ -110,6 +114,24 @@ azlocal stop_interception
 az account show
 ```
 
+### Lab 3 - Terraform with LocalStack
+
+Modules available for provisioning resources in Azure LocalStack:
+- [Azure API Management](./modules/api-management/)
+- [Azure App Service](./modules/app-service/)
+- [Azure RBAC](./modules/rbac/)
+- [Azure Container Registry](./modules/container-registry/)
+- [Azure Kubernetes Service](./modules/kubernetes/)
+- [Azure Database for PostgreSQL](./modules/postgresql/)
+- [Azure Key Vault](./modules/key-vault/)
+- [Azure Blob Storage](./modules/blob-storage/)
+- [Azure Storage](./modules/storage/)
+- [Azure SQL](./modules/sql-database/)
+
+TODO
+
+## Post-lab
+
 Clean environment using Docker Compose:
 
 ```bash
@@ -129,19 +151,6 @@ docker stop $(docker ps -q --filter ancestor=localstack/localstack-azure-alpha)
 docker image prune --all --force
 docker system prune --all --force
 ```
-
-## Modules
-
-- [Azure API Management](./modules/api-management/)
-- [Azure App Service](./modules/app-service/)
-- [Azure RBAC](./modules/rbac/)
-- [Azure Container Registry](./modules/container-registry/)
-- [Azure Kubernetes Service](./modules/kubernetes/)
-- [Azure Database for PostgreSQL](./modules/postgresql/)
-- [Azure Key Vault](./modules/key-vault/)
-- [Azure Blob Storage](./modules/blob-storage/)
-- [Azure Storage](./modules/storage/)
-- [Azure SQL](./modules/sql-database/)
 
 ## Links
 
