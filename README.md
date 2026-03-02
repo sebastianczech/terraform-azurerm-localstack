@@ -114,7 +114,7 @@ azlocal stop_interception
 az account show
 ```
 
-### Lab 3 - Terraform with LocalStack
+### Lab 2 - Terraform with LocalStack
 
 Modules available for provisioning resources in Azure LocalStack:
 - [Azure API Management](./modules/api-management/)
@@ -128,7 +128,48 @@ Modules available for provisioning resources in Azure LocalStack:
 - [Azure Storage](./modules/storage/)
 - [Azure SQL](./modules/sql-database/)
 
-TODO
+#### Lab 2a - Web App
+
+Provision a resource group, storage account, and Azure App Service web app using LocalStack.
+
+```bash
+cd examples/web-app
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# Destroy resources when done
+terraform destroy -auto-approve
+```
+
+#### Lab 2b - Kubernetes (AKS)
+
+Provision a resource group, AKS cluster, and optionally an Azure Container Registry using LocalStack.
+
+```bash
+cd examples/k8s
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# Provision with Container Registry enabled
+terraform apply -auto-approve -var="enable_container_registry=true"
+
+# Destroy resources when done
+terraform destroy -auto-approve
+```
 
 ## Post-lab
 
