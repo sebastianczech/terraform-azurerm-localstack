@@ -128,6 +128,16 @@ Modules available for provisioning resources in Azure LocalStack:
 - [Azure Storage](./modules/storage/)
 - [Azure SQL](./modules/sql-database/)
 
+While using [Terraform with LocalStack](https://docs.localstack.cloud/azure/integrations/terraform/), ensure that the provider is configured to point to the LocalStack endpoint:
+
+```hcl
+provider "azurerm" {
+  features {}
+  subscription_id = "00000000-0000-0000-0000-000000000000"
+  metadata_host   = "localhost.localstack.cloud:4566"
+}
+```
+
 #### Lab 2a - Web App
 
 Provision a resource group, storage account, and Azure App Service web app using LocalStack.
