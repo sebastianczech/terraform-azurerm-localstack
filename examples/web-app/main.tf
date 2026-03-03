@@ -10,11 +10,11 @@ resource "azurerm_resource_group" "this" {
 module "storage" {
   source = "../../modules/storage"
 
-  name                      = "${var.prefix}${var.environment}storage"
-  location                  = azurerm_resource_group.this.location
-  resource_group_name       = azurerm_resource_group.this.name
-  account_tier              = var.storage_account_tier
-  account_replication_type  = var.storage_replication_type
+  name                     = "${var.prefix}${var.environment}storage"
+  location                 = azurerm_resource_group.this.location
+  resource_group_name      = azurerm_resource_group.this.name
+  account_tier             = var.storage_account_tier
+  account_replication_type = var.storage_replication_type
 
   tags = var.tags
 }
