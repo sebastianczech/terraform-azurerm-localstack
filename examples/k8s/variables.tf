@@ -39,7 +39,7 @@ variable "default_node_pool" {
 variable "enable_container_registry" {
   description = "Whether to create an Azure Container Registry"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "container_registry_sku" {

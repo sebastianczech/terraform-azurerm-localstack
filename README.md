@@ -145,6 +145,9 @@ Provision a resource group, storage account, and Azure App Service web app using
 ```bash
 cd examples/web-app
 
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
 # Initialise Terraform
 terraform init
 
@@ -154,8 +157,16 @@ terraform plan
 # Provision resources in LocalStack
 terraform apply -auto-approve
 
+# List resource groups, storage accounts, and web apps to confirm deletion
+az group list
+az storage account list
+az webapp list
+
 # Destroy resources when done
 terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
 ```
 
 #### Lab 2b - Kubernetes (AKS)
@@ -165,6 +176,9 @@ Provision a resource group, AKS cluster, and optionally an Azure Container Regis
 ```bash
 cd examples/k8s
 
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
 # Initialise Terraform
 terraform init
 
@@ -174,11 +188,16 @@ terraform plan
 # Provision resources in LocalStack
 terraform apply -auto-approve
 
-# Provision with Container Registry enabled
-terraform apply -auto-approve -var="enable_container_registry=true"
+# List resource groups, AKS clusters, and container registries
+az group list
+az aks list
+az acr list
 
 # Destroy resources when done
 terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
 ```
 
 ## Post-lab
