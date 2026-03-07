@@ -200,6 +200,166 @@ terraform destroy -auto-approve
 azlocal stop_interception
 ```
 
+#### Lab 2c - Secure App
+
+Provision a resource group, Key Vault, App Service, and RBAC role assignment using LocalStack.
+Demonstrates secrets management with access control — a common security pattern for production apps.
+
+```bash
+cd examples/secure-app
+
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# List resource groups, key vaults, and web apps to confirm creation
+az group list
+az keyvault list
+az webapp list
+
+# Destroy resources when done
+terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
+```
+
+#### Lab 2d - API Backend
+
+Provision a resource group, PostgreSQL server, App Service, and API Management using LocalStack.
+Demonstrates a classic 3-tier architecture: API gateway → web app backend → database.
+
+```bash
+cd examples/api-backend
+
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# List resource groups, PostgreSQL servers, web apps, and API Management services
+az group list
+az postgres flexible-server list
+az webapp list
+az apim list
+
+# Destroy resources when done
+terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
+```
+
+#### Lab 2e - Data Platform
+
+Provision a resource group, general-purpose storage account, blob storage with containers, and PostgreSQL server using LocalStack.
+Demonstrates a data ingestion and processing pattern with separate raw, processed, and export containers.
+
+```bash
+cd examples/data-platform
+
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# List resource groups, storage accounts, and PostgreSQL servers
+az group list
+az storage account list
+az postgres flexible-server list
+
+# Destroy resources when done
+terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
+```
+
+#### Lab 2f - Container Workflow
+
+Provision a resource group, Azure Container Registry, AKS cluster, and AcrPull RBAC role assignment using LocalStack.
+Demonstrates a full container workflow: push images to ACR, pull and run them on AKS.
+
+```bash
+cd examples/container-workflow
+
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# List resource groups, container registries, and AKS clusters
+az group list
+az acr list
+az aks list
+
+# Destroy resources when done
+terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
+```
+
+#### Lab 2g - Serverless Storage
+
+Provision a resource group, general-purpose storage account, blob storage with containers, and RBAC role assignments using LocalStack.
+Demonstrates object and queue storage with fine-grained access control.
+
+```bash
+cd examples/serverless-storage
+
+# Start interception and set Azure CLI to use LocalStack
+azlocal start_interception
+
+# Initialise Terraform
+terraform init
+
+# Preview the resources to be created
+terraform plan
+
+# Provision resources in LocalStack
+terraform apply -auto-approve
+
+# List resource groups and storage accounts
+az group list
+az storage account list
+
+# Destroy resources when done
+terraform destroy -auto-approve
+
+# Stop interception and reset Azure CLI to default
+azlocal stop_interception
+```
+
 ## Post-lab
 
 Clean environment using Docker Compose:
